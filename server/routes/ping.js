@@ -12,8 +12,9 @@ router.post("/", function(req, res, next) {
     res.status(200).send({ response: `${teamName} is part of the team!` });
   else
     res.status(400).send({
-      response: `${teamName} is not part of the team. Modify your .env`
+      response: `${teamName} is not part of the team. Modify your .env`,
     });
+  console.log(process.env.TEAM_MEMBERS)
 });
 
 module.exports = router;
