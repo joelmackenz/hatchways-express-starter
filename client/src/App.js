@@ -1,6 +1,7 @@
 import './App.css';
 import Login from './components/login.js';
 import SignUp from './components/signup.js';
+import Main from './components/Main'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import { Button } from "react-bootstrap";
@@ -29,6 +30,9 @@ function App() {
             </Route>
             <Route path="/signup">
               <SignUp />
+            </Route>
+            <Route path="/main">
+              <Main />
             </Route>
           </Switch>
         </div>

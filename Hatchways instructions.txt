@@ -1,0 +1,59 @@
+***Front end page***
+
+
+LOGIN
+
+create two front-end react routers (login and signup)
+Signup - name, email, password, confirm password
+(Don't do "Forgot Password?" portion)
+Front-end validation:
+	-password length must be equal to or greater than six; email is formatted properly
+	-validation errors links:
+	( https://material-ui.com/components/snackbars/ + https://material-ui.com/components/text-fields/)
+
+Extra: make the page responsive by removing side images on smaller screens
+
+
+MESSAGING
+
+Make a messenging page
+
+
+-------------------------------------------------------------------
+***Back-end***
+
+
+
+SET UP MONGO
+
+Connect to a DB on start of application
+-Create basic user model needed for login/signup. Use Mongoose for Node.js
+-Update ReadMe with instructions on how to run the app with a local DB
+
+
+MESSAGING
+
+-create a way to store convos and messages
+-API call to get convos for a user
+-API call to get messages for a conversation (ordered)
+-API call to search for users
+
+SIGNUP / LOGIN API
+
+-create register route (POST)
+	-create new user, return 201
+	-back-end validation - password should be at least 6 chars, required fields (email, name)
+	-simple password validation (>6 chars)
+-create login route (POST)
+	-verify username/password
+	-return 4xx if things are incorrect
+-user model, hash/salt password before saving -- don't store directly on DB
+-authority middleware/decorator - create authenticated routes and get user object
+-use decent authentication strategy - HTTP only cookies, localstorage
+
+SOCKETS - REAL-TIME MESSAGING
+-add socket support on front- and back-end
+-use package socket.io for realtime notifications
+-setup socket server on backend
+-setup client connection (security, should connect if user is authorized)
+-use object to keep track of users currently connceted (use in-memory variable, like dictionary or object in back-end -- only applicable for this project)
