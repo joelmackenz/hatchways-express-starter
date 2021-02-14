@@ -57,3 +57,10 @@ SOCKETS - REAL-TIME MESSAGING
 -setup socket server on backend
 -setup client connection (security, should connect if user is authorized)
 -use object to keep track of users currently connceted (use in-memory variable, like dictionary or object in back-end -- only applicable for this project)
+
+
+
+
+NOTES
+
+- There's no package.json or package-lock.json needed in the root folder. Remember to run the project by having two terminals open, and running npm start from the client folder and npm run dev from the server folder

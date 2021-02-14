@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-export default class Login extends React.Component {
-    render() {
+export default function Login({ onNameSubmit }) {
+
+    const userName = useRef()
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        onNameSubmit(userName.current.value)
+
+    }
+
         return (
         <div className="container">
-                <Form>
+                <Form onSubmit={handleSubmit}>
+
+                    <Form.Group controlId="formName" className="col-4 offset-4">
+                        <Form.Label>User Name</Form.Label>
+                        <Form.Control type="text" placeholder="User Name" ref={userName} required />
+                    </Form.Group>
 
                     <Form.Group controlId="formEmail" className="col-4 offset-4">
                         <Form.Label>Email address</Form.Label>
@@ -15,17 +29,15 @@ export default class Login extends React.Component {
                     <Form.Group controlId="formBasicPassword" className="col-4 offset-4">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" />
-                        <Form.Text className="text-muted">
-                            Make your password 6 characters or longer.
-                        </Form.Text>
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" >
                         Submit
                     </Button>
 
                 </Form>
             </div>
         )
-    }
 }
+
+
