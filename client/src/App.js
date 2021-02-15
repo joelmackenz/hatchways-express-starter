@@ -3,16 +3,26 @@ import Login from './components/login.js';
 import SignUp from './components/signup.js';
 import Main from './components/Main'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {ChatsProvider} from './contexts/ChatsProvider'
+import { ContactProvider } from './contexts/ContactProvider'
 import useLocalStorage from './custom hooks/useLocalStorage'
 
 function App() {
-  const [ name, setName ] = useLocalStorage('name')
+  const [ name, setName ] = useLocalStorage('name', "")
+
+  const mainPage = (
+    <ContactProvider>
+      <ChatsProvider>
+        <Main name={name} />
+      </ChatsProvider>
+    </ContactProvider>
+  )
 
   return (
-    name ? <Main name={name} /> : 
+    name ? mainPage : 
       <div className="App">
         <div className="container">
           <h1>Hatchways Messenger</h1>

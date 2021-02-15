@@ -1,15 +1,16 @@
 import React from 'react';
-import { Button, Tab, Nav } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 
-export default class Chats extends React.Component {
 
-    const
-    render() {
-        return (
-        <div className="d-flex flex-column">
-                Chats rendered
-        </div>
-        )
-    }
+export default function Chats() {
+
+    return (
+        <ListGroup variant="flush">
+            <ListGroup.Item action>Joel</ListGroup.Item>
+            <ListGroup.Item action>Steven</ListGroup.Item>
+            <ListGroup.Item action>Sandra</ListGroup.Item>
+            <ListGroup.Item action>Stacey</ListGroup.Item>
+        </ListGroup>
+    )
 }
 

@@ -1,10 +1,12 @@
 import React from 'react';
 import Sidebar from './sidebar';
+import OpenChat from './OpenChat'
 
-export default function Main() {
+export default function Main({ name }){
     return(
         <div className="d-flex" style={{height:'80vh'}}>
-            <Sidebar />
+            <Sidebar name={name}/>
+            <OpenChat />
         </div>
 
     )

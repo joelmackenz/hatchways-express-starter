@@ -1,3 +1,5 @@
+//Used like UseState, but to store info in local storage
+
 import { useEffect, useState } from 'react'
 
 // Used to keep local storage oragnized
@@ -20,7 +22,7 @@ export default function useLocalStorage(key, initialValue) {
     //Any time value or prefixed key change, over-write old value with a stringified JSON value
     useEffect(() => {
         localStorage.setItem(prefixedKey, JSON.stringify(value))
-    }), [ prefixedKey, value ]
+    }, [ prefixedKey, value ])
     
     return [value, setValue]
 }

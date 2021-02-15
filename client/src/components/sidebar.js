@@ -1,17 +1,16 @@
 import { React, useState } from 'react';
-import { Button, Tab, Nav, Modal } from 'react-bootstrap';
+import { Tab, Nav} from 'react-bootstrap';
 import Chats from "./Chats";
 import Contacts from "./Contacts";
-import NewChat from './NewChat';
-import NewContact from './NewContact';
+import useLocalStorage from '../custom hooks/useLocalStorage'
 
-export default function Sidebar(userName) {
+export default function Sidebar( userName ) {
     const [ activeKey, setActiveKey ] = useState("chats")
-
+    const [ name, setName ] = useLocalStorage('name')
     return(
         <div style={{width:"300px"}} className="d-flex flex-column">
             <div className="p-2 small">
-                userName
+                {name}
             </div>
             <Tab.Container activeKey={activeKey} onSelect={setActiveKey}>
                 <Nav variant="tabs" className="justify-content-center">
@@ -30,10 +29,6 @@ export default function Sidebar(userName) {
                             <Contacts />
                         </Tab.Pane>
                     </Tab.Content>
-                {/* Below can be added for adding new contact functionality */}
-                {/* <Button>
-                    New {activeKey === "chats" ? "Chat" : "Contact"}
-                </Button> */}
             </Tab.Container>
         </div>
         )

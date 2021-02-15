@@ -3,13 +3,11 @@ import { Form, Button } from 'react-bootstrap';
 
 export default function Login({ onNameSubmit }) {
 
-    const userName = useRef()
+    const userNameRef = useRef()
 
     function handleSubmit(e) {
         e.preventDefault();
-
-        onNameSubmit(userName.current.value)
-
+        onNameSubmit(userNameRef.current.value)
     }
 
         return (
@@ -18,12 +16,12 @@ export default function Login({ onNameSubmit }) {
 
                     <Form.Group controlId="formName" className="col-4 offset-4">
                         <Form.Label>User Name</Form.Label>
-                        <Form.Control type="text" placeholder="User Name" ref={userName} required />
+                        <Form.Control type="text" placeholder="User Name" ref={userNameRef} required />
                     </Form.Group>
 
                     <Form.Group controlId="formEmail" className="col-4 offset-4">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Email" />
+                        <Form.Control type="email" placeholder="Email" required/>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword" className="col-4 offset-4">
